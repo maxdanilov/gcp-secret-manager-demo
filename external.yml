@@ -1,0 +1,18 @@
+---
+apiVersion: kubernetes-client.io/v1
+kind: ExternalSecret
+metadata:
+  name: gcp-secrets-manager-example2   # name of the k8s external secret and the k8s secret
+spec:
+  backendType: gcpSecretsManager
+  projectId: infra-kaas-test
+  data:
+    - key: my-gsm-secret-name     # name of the GCP secret
+      name: my-kubernetes-secret-name   # key name in the k8s secret
+      version: latest    # version of the GCP secret
+      property: value      # name of the field in the GCP secret
+    - key: my-gsm-secret-name     # name of the GCP secret
+      name: my-kubernetes-secret-name2   # key name in the k8s secret
+      version: latest    # version of the GCP secret
+      property: value      # name of the field in the GCP secret
+
